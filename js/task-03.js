@@ -25,22 +25,35 @@ const images = [
 ];
 
 const list = document.querySelector(".gallery");
-console.log(list);
 
-const markup = images
-  .map(
-    (image) => `    <li>
-      <img
+function creativeMarkup(arr) {
+  const markup = arr
+    .map(
+      (image) => `    <li>
+      <img class="image"
         src=${image.url}
-        alt=${image.alt}>
+        alt=${image.alt} width="300">
+        
     </li>`
-  )
-  .join("");
+    )
+    .join("");
 
-console.log(markup);
+  // console.log(markup);
 
-list.insertAdjacentHTML("afterbegin", markup);
+  list.insertAdjacentHTML("afterbegin", markup);
+}
+
+creativeMarkup(images);
+
+// Inline styles
+
+// list.style.listStyle = "none";
+// list.style.margin = "0";
+// list.style.padding = "0";
 
 // list.style.display = "flex";
+// list.style.justifyContent = "center";
+// list.style.alignItemst = "center";
+// list.style.alignItemst = "10px";
 
 // console.log(list.style);
