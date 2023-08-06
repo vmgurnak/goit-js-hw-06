@@ -24,9 +24,9 @@ function formSubmit(event) {
     elements: { email, password },
   } = event.currentTarget;
 
-  // Проверка на пустые строки
+  // Проверка на пустые строки, вывод alert или объекта с данными Email, Password
   if (email.value === "" || password.value === "") {
-    return console.log("Please fill in all the fields!");
+    alert("Please fill in all the fields!");
   } else {
     console.log({
       Email: email.value,
