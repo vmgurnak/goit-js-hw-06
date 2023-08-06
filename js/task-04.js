@@ -48,6 +48,7 @@ const clearBtn = document.querySelector('[data-action= "clear"]');
 // callback function for reset
 const reset = () => {
   valueCounter.textContent = counterValueStart;
+  counterValue = counterValueStart;
 };
 
 // Call listener on button Clear
