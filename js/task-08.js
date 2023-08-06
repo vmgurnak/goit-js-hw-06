@@ -32,8 +32,7 @@ function formSubmit(event) {
       Email: email.value,
       Password: password.value,
     });
+    // Очистка полей формы после отправки
+    event.currentTarget.reset();
   }
-
-  // Очистка полей формы после отправки
-  event.currentTarget.reset();
 }
