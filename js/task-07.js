@@ -29,7 +29,7 @@ inputSizeControl.addEventListener("input", inputSize);
 // Поиск button
 const resetBtn = document.querySelector('[data-reset="reset"]');
 
-// Добавление слушателя с событием click на кнопку для сброса ращмера шрифта к начальному значению
+// Добавление слушателя с событием click на кнопку для сброса размера шрифта к начальному значению
 resetBtn.addEventListener("click", () => {
   text.style.fontSize = sizeTextStart;
 });

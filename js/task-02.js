@@ -30,38 +30,26 @@ const ingredients = [
   "Condiments",
 ];
 
-// forEach method
-
-// const list = document.querySelector("#ingredients");
-
-// const items = [];
-
-// ingredients.forEach((element) => {
-//   const item = document.createElement("li");
-//   item.textContent = element;
-//   item.classList.add(  "item");
-//   items.push(item);
-// });
-
-// // console.log(items);
-
-// list.append(...items);
-
-// Function, map method
-
+// Посик ul#ingredients
 const list = document.querySelector("#ingredients");
 
+// Функция принимает массив
 function creativeMarkup(arr) {
+  // Метод map трансоформирует массив ingredients, создает новый массив с элементами разметки
   const markup = arr.map((element) => {
+    // создание элемента "li"
     const item = document.createElement("li");
+    // Добавление название ингредиента в текст li
     item.textContent = element;
+    // Добавление класса для li
     item.classList.add("item");
-    // console.log(item);
+    // возвращает готовый элемент массива item
     return item;
   });
-  // console.log(markup);
 
+  // Распыление элементов массива в колекцию элементов с помощью spred. Добавление элементов после детей ul в DOM дерево
   list.append(...markup);
 }
 
+// Вызов функции, аргумент массив ingredients
 creativeMarkup(ingredients);

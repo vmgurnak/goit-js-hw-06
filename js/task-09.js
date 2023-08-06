@@ -11,8 +11,6 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-console.log(getRandomHexColor());
-
 // Поиск button.change-color
 const changeColorBtn = document.querySelector(".change-color");
 
@@ -22,7 +20,7 @@ const body = document.querySelector("body");
 // Поиск span.color
 const colorValue = document.querySelector(".color");
 
-// Коллбэк-функция: изменение цвета фона body при клике на кнопку
+// Коллбэк-функция: изменение цвета фона body и текст span при клике на кнопку на случайный цвет
 const changeColorBackground = (event) => {
   body.style.backgroundColor = getRandomHexColor();
   colorValue.textContent = getRandomHexColor();

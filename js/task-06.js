@@ -13,7 +13,7 @@
 // Если введено подходящее количество символов, то border инпута становится зелёным, если неправильное - красным.
 // Для добавления стилей, используй CSS-классы valid и invalid, которые мы уже добавили в исходные файлы задания.
 
-// Search input by id
+// Search input#validation-input
 const inputText = document.querySelector("#validation-input");
 
 // Callback function for the focus loss event, compares the length of the entered characters with the specified length, adds classes for the border color

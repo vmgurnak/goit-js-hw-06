@@ -19,9 +19,13 @@
 // Category: Technologies
 // Elements: 5
 
+// Поиск  всех li.item, вывод в псевдомассив
 const categories = document.querySelectorAll(".item");
+
+// Вывод длины массива
 console.log(`Number of categories: ${categories.length}`);
 
+// Перебор перебор элементов пседомассива li.item методом forEach, вывод содержимого первого дочернего элемента h2 и длины пседомассива  children (дочерние элементы li списка ul)
 categories.forEach((element) => {
   console.log(`Category: ${element.firstElementChild.textContent}`);
   console.log(`Elements: ${element.lastElementChild.children.length}`);

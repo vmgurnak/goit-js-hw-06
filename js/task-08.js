@@ -34,6 +34,6 @@ function formSubmit(event) {
     });
   }
 
-  // Очистка полей формы
+  // Очистка полей формы после отправки
   event.currentTarget.reset();
 }

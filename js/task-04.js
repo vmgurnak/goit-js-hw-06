@@ -41,10 +41,14 @@ btnDescr.addEventListener("click", decrementCounter);
 btnIncr.addEventListener("click", incrementCounter);
 
 // Reset counter
+
+// Select button Clear
 const clearBtn = document.querySelector('[data-action= "clear"]');
 
+// callback function for reset
 const reset = () => {
   valueCounter.textContent = counterValueStart;
 };
 
+// Call listener on button Clear
 clearBtn.addEventListener("click", reset);
