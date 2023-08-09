@@ -15,56 +15,51 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-// Поиск div.controls
-const controlsBox = document.querySelector("#controls");
-
-// Объявление переменной для аргумента функкции createBoxes(amount) - число при вводе в input
-let numberElem = 0;
-
-// Поиск input #controls > input"
-const input = document.querySelector("#controls > input");
-
-// Коллбэк-функция для получения значения input
-const getNumber = (event) => {
-  event.preventDefault();
-  // numberElem = Number(input.value);
-  numberElem = event.currentTarget.value;
-  console.log(numberElem);
-  createBoxes(numberElem);
+// Создание объекта с поиском элементов
+const elements = {
+  controlsBox: document.querySelector("#controls > input"),
+  input: document.querySelector("#controls > input"),
+  btnCreate: document.querySelector("button[data-create]"),
+  btnDestr: document.querySelector("button[data-destroy]"),
+  boxes: document.querySelector("#boxes"),
 };
-// Слушатель для input, событие input
-input.addEventListener("input", getNumber);
 
-// Поиск button data-create;
-const dataCreateBtn = document.querySelector("button[data-create]");
-console.log(dataCreateBtn);
+// Деструктуризация объекта
+const { input, btnCreate, btnDestr, boxes } = elements;
 
-// Поиск button data-destroy;
-const dataDestroyBtn = document.querySelector("button[data-destroy]");
-console.log(dataDestroyBtn);
+// Слушатель для кнопки Create, событие click
+btnCreate.addEventListener("click", createBoxes);
 
-// Поиск div#boxes;
-const boxes = document.querySelector("#boxes");
-console.log(boxes);
+// Слушатель для кнопки Destroy, событие click
+btnDestr.addEventListener("click", clearBoxes);
 
-// Функция createBoxes
+// Коллбэк-функция createBoxes(amount) для создания коллекции div
 function createBoxes(amount) {
-  // Строка для добавления разметки
-  const markup = `<div>Test</div>`;
+  // Очистка разметки
+  boxes.innerHTML = "";
 
-  // Коллбэк-функция для CreateBtn
-  const createColl = () => {
-    boxes.insertAdjacentHTML("beforeend", markup);
-  };
+  const items = [];
+  let widht = 30;
+  let heigth = 30;
 
-  // Слушатель для кнопки Create, событие click
-  dataCreateBtn.addEventListener("click", createColl);
+  // Цикл для создания элементов разметки и добавления в массив
+  for (let i = 0; i < input.value; i += 1) {
+    const color = getRandomHexColor();
+    widht += 10;
+    heigth += 10;
+    const item = document.createElement("div");
+    item.style.width = `${widht}px`;
+    item.style.height = `${heigth}px`;
+    item.style.backgroundColor = color;
+    items.push(item);
+  }
 
-  // Коллбэк-функция для DestroyBtn
-  const clearColl = () => {
-    boxes.innerHTML = "";
-  };
+  console.log(items);
+  // Добавление разметки в DOM с распылением значений массива элементов разметки
+  boxes.append(...items);
+}
 
-  // Слушатель для кнопки Destroy, событие click
-  dataDestroyBtn.addEventListener("click", clearColl);
+// Коллбэк-функция для очистки разметки
+function clearBoxes() {
+  boxes.innerHTML = "";
 }
