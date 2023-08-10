@@ -26,7 +26,7 @@ const elements = {
 // Деструктуризация объекта
 const { input, btnCreate, btnDestr, boxes } = elements;
 
-// Слушатель для кнопки Create, событие click
+// Слушатель для кнопки Create, событие click, вызов коллбэк-функции createBoxes с параметром input.value
 btnCreate.addEventListener("click", () => createBoxes(input.value));
 
 // Слушатель для кнопки Destroy, событие click
