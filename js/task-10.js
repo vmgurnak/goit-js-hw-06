@@ -17,31 +17,31 @@ function getRandomHexColor() {
 
 // Создание объекта с поиском элементов
 const elements = {
-  input: document.querySelector("#controls > input"),
-  btnCreate: document.querySelector("button[data-create]"),
-  btnDestr: document.querySelector("button[data-destroy]"),
-  boxes: document.querySelector("#boxes"),
+  input: document.querySelector('#controls > input'),
+  btnCreate: document.querySelector('button[data-create]'),
+  btnDestr: document.querySelector('button[data-destroy]'),
+  boxes: document.querySelector('#boxes'),
 };
 
 // Деструктуризация объекта
 const { input, btnCreate, btnDestr, boxes } = elements;
 
-// Слушатель для кнопки Create, событие click, вызов коллбэк-функции createBoxes с параметром input.value
-btnCreate.addEventListener("click", () => createBoxes(input.value));
+// Слушатель для кнопки Create, событие click, вызов функции createBoxes с параметром input.value
+btnCreate.addEventListener('click', () => createBoxes(input.value));
 
 // Слушатель для кнопки Destroy, событие click
-btnDestr.addEventListener("click", clearBoxes);
+btnDestr.addEventListener('click', clearBoxes);
 
 // Коллбэк-функция createBoxes(amount) для создания коллекции div
 function createBoxes(amount) {
   // Очистка разметки
-  boxes.innerHTML = "";
+  boxes.innerHTML = '';
   // Присвоение параметру значения input
 
   const items = [];
   let widht = 20;
   let heigth = 20;
-  let markup = "";
+  let markup = '';
 
   // Цикл для создания элементов разметки и добавления в массив
   for (let i = 0; i < amount; i += 1) {
@@ -49,7 +49,7 @@ function createBoxes(amount) {
     widht += 10;
     heigth += 10;
     // Создание разметки с помощью boxes.append(...items)
-    const item = document.createElement("div");
+    const item = document.createElement('div');
     item.style.width = `${widht}px`;
     item.style.height = `${heigth}px`;
     item.style.backgroundColor = color;
@@ -69,5 +69,5 @@ function createBoxes(amount) {
 
 // Коллбэк-функция для очистки разметки
 function clearBoxes() {
-  boxes.innerHTML = "";
+  boxes.innerHTML = '';
 }
