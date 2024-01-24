@@ -10,14 +10,19 @@
 const counterValueStart = 0;
 let counterValue = counterValueStart;
 
-// Selecting a button to decrease the counter
-const btnDescr = document.querySelector('[data-action= "decrement"]');
+// Рефакторинг с объектом
+// Создание объекта с поиском элементов
 
-// Selecting a button to increase the counter
-const btnIncr = document.querySelector('[data-action="increment"]');
+const elements = {
+  btnDescr: document.querySelector('[data-action= "decrement"]'),
+  btnIncr: document.querySelector('[data-action="increment"]'),
+  valueCounter: document.querySelector('#value'),
+  clearBtn: document.querySelector('[data-action= "clear"]'),
+};
 
-// Select span with counter value
-const valueCounter = document.querySelector("#value");
+// Деструктуризация объекта
+
+const { btnDescr, btnIncr, valueCounter, clearBtn } = elements;
 
 // Setting the text inside the span to the initial counter value
 valueCounter.textContent = counterValueStart;
@@ -35,15 +40,12 @@ const incrementCounter = () => {
 };
 
 // Call listener on button click with counter
-btnDescr.addEventListener("click", decrementCounter);
+btnDescr.addEventListener('click', decrementCounter);
 
 // Call listener on button click with counter increment
-btnIncr.addEventListener("click", incrementCounter);
+btnIncr.addEventListener('click', incrementCounter);
 
 // Reset counter
-
-// Select button Clear
-const clearBtn = document.querySelector('[data-action= "clear"]');
 
 // callback function for reset
 const reset = () => {
@@ -52,4 +54,4 @@ const reset = () => {
 };
 
 // Call listener on button Clear
-clearBtn.addEventListener("click", reset);
+clearBtn.addEventListener('click', reset);

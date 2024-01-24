@@ -11,20 +11,22 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-// Поиск button.change-color
-const changeColorBtn = document.querySelector(".change-color");
+// Создание объекта с поиском элементов
+const elements = {
+  changeColorBtn: document.querySelector('.change-color'),
+  body: document.querySelector('body'),
+  colorValue: document.querySelector('.color'),
+};
 
-// Поиск body по селектору тега
-const body = document.querySelector("body");
-
-// Поиск span.color
-const colorValue = document.querySelector(".color");
+// Деструктуризация объекта
+const { changeColorBtn, body, colorValue } = elements;
 
 // Коллбэк-функция: изменение цвета фона body и текст span при клике на кнопку на случайный цвет
 const changeColorBackground = (event) => {
-  body.style.backgroundColor = getRandomHexColor();
-  colorValue.textContent = getRandomHexColor();
+  const backgroundColor = getRandomHexColor();
+  body.style.backgroundColor = backgroundColor;
+  colorValue.textContent = backgroundColor;
 };
 
 // Добавление слушателя для button.change-color событие "click
-changeColorBtn.addEventListener("click", changeColorBackground);
+changeColorBtn.addEventListener('click', changeColorBackground);

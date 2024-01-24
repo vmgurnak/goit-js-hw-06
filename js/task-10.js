@@ -27,7 +27,9 @@ const elements = {
 const { input, btnCreate, btnDestr, boxes } = elements;
 
 // Слушатель для кнопки Create, событие click, вызов функции createBoxes с параметром input.value
-btnCreate.addEventListener('click', () => createBoxes(input.value));
+btnCreate.addEventListener('click', () => {
+  createBoxes(input.value);
+});
 
 // Слушатель для кнопки Destroy, событие click
 btnDestr.addEventListener('click', clearBoxes);
@@ -37,7 +39,6 @@ function createBoxes(amount) {
   // Очистка разметки
   boxes.innerHTML = '';
   // Присвоение параметру значения input
-
   const items = [];
   let widht = 20;
   let heigth = 20;
@@ -48,26 +49,27 @@ function createBoxes(amount) {
     const color = getRandomHexColor();
     widht += 10;
     heigth += 10;
-    // Создание разметки с помощью boxes.append(...items)
-    const item = document.createElement('div');
-    item.style.width = `${widht}px`;
-    item.style.height = `${heigth}px`;
-    item.style.backgroundColor = color;
-    items.push(item);
+    // // Создание разметки с помощью boxes.append(...items)
+    // const item = document.createElement('div');
+    // item.style.width = `${widht}px`;
+    // item.style.height = `${heigth}px`;
+    // item.style.backgroundColor = color;
+    // items.push(item);
 
     // Создание разметки с помощью шаблонных строк и boxes.insertAdjacentHTML("beforeend", markup)
-    // const item = `<div style="width: ${widht}px;height: ${heigth}px;background-color: ${color};"></div>`;
-    // markup += item;
+    const item = `<div style="width: ${widht}px;height: ${heigth}px;background-color: ${color};"></div>`;
+    markup += item;
   }
 
-  // Добавление разметки в DOM с распылением значений массива элементов разметки
-  boxes.append(...items);
+  // // Добавление разметки в DOM с распылением значений массива элементов разметки
+  // boxes.append(...items);
 
   // Добавление markup в DOM с помощью метода insertAdjacentHTML
-  // boxes.insertAdjacentHTML("beforeend", markup);
+  boxes.insertAdjacentHTML('beforeend', markup);
 }
 
 // Коллбэк-функция для очистки разметки
 function clearBoxes() {
   boxes.innerHTML = '';
+  input.value = null;
 }
